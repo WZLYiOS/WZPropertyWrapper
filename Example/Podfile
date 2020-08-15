@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'WZPropertyWrapper_Example' do
+  pod 'WZPropertyWrapper', :path => '../'
+end

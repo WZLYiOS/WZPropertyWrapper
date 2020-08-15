@@ -1,0 +1,16 @@
+PODS:
+  - WZPropertyWrapper (0.1.0)
+
+DEPENDENCIES:
+  - WZPropertyWrapper (from `../`)
+
+EXTERNAL SOURCES:
+  WZPropertyWrapper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WZPropertyWrapper: 64aed356ab86c3e89a6887ce8efe22f7390b1ea7
+
+PODFILE CHECKSUM: 1c1075bb8967a353e1d478f5b954ac7475d7fa0f
+
+COCOAPODS: 1.9.1

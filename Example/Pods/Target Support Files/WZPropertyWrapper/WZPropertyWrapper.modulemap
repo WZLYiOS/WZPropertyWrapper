@@ -1,0 +1,6 @@
+framework module WZPropertyWrapper {
+  umbrella header "WZPropertyWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}
