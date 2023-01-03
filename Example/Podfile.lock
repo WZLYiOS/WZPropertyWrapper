@@ -1,5 +1,5 @@
 PODS:
-  - WZPropertyWrapper (0.1.0)
+  - WZPropertyWrapper (0.1.1)
 
 DEPENDENCIES:
   - WZPropertyWrapper (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  WZPropertyWrapper: 64aed356ab86c3e89a6887ce8efe22f7390b1ea7
+  WZPropertyWrapper: 326efdf7739aaa1fbd20c87ed3b460cddadb9efc
 
 PODFILE CHECKSUM: 1c1075bb8967a353e1d478f5b954ac7475d7fa0f
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3
