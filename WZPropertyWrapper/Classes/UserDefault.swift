@@ -68,7 +68,7 @@ extension Dictionary: PropertyListValue where Key == String, Value: PropertyList
 // MARK - 存储Codable类型
 @available(iOS 2.0, OSX 10.0, tvOS 9.0, watchOS 2.0, *)
 @propertyWrapper
-public struct WZUserDefaultCodable<Value: Codable> {
+public struct UserDefaultCodable<Value: Codable> {
     
     let key: String
     let defaultValue: Value?
@@ -91,6 +91,10 @@ public struct WZUserDefaultCodable<Value: Codable> {
             return result
         }
         set {
+            if newValue == nil {
+                UserDefaults.standard.removeObject(forKey: key)
+                return
+            }
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
             guard let data = try? encoder.encode(newValue),
