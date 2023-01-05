@@ -12,12 +12,13 @@ import WZPropertyWrapper
 class ViewController: UIViewController {
 
     
-    @UserDefaultCodable("com.wz.ly", defaultValue: ViewModel())
-    var model: ViewModel
+    @UserDefaultCodable("com.wz.ly")
+    var model: ViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        debugPrint(model.ub)
+//        self.model = ViewModel()
+        debugPrint(model?.ub)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapActopn)))
     }
 
@@ -30,21 +31,21 @@ class ViewController: UIViewController {
 extension ViewController {
     
     @objc private func tapActopn() {
-        model.ub = 7
-        model.save()
-        debugPrint(model.ub)
+        model?.ub = 7
+        $model.save()
+        debugPrint(model?.ub)
         
-        model.ub = 8
-        model.save()
-        debugPrint(model.ub)
+        model?.ub = 8
+        $model.save()
+        debugPrint(model?.ub)
         
-        model.ub = 11
-        model.remove()
-        debugPrint(model.ub)
+        model?.ub = 9
+        $model.save()
+        debugPrint(model?.ub)
     }
 }
 
-class ViewModel: Codable, UserDefaultCodableStorage {
+class ViewModel: Codable {
     
     
     

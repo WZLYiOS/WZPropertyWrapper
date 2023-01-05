@@ -69,99 +69,91 @@ extension Dictionary: PropertyListValue where Key == String, Value: PropertyList
 // MARK - 存储Codable类型
 @available(iOS 2.0, OSX 10.0, tvOS 9.0, watchOS 2.0, *)
 @propertyWrapper
-public struct UserDefaultCodable<Value: Codable&UserDefaultCodableStorage> {
+public struct UserDefaultCodable<Value: Codable> : UserDefaultCodableProjectedValueProtocol{
     
-    let key: String
-    var defaultValue: Value
+    var key: String
     var wValue: Value?
     var userDefaults: UserDefaults
+    public var projectedValue: UserDefaultCodableProjectedValue
     
-    public init(_ key: String, defaultValue: Value, userDefaults: UserDefaults = .standard) {
+    public init(_ key: String, userDefaults: UserDefaults = .standard) {
+        self.projectedValue = UserDefaultCodableProjectedValue(key: key)
         self.key = key
-        self.defaultValue = defaultValue
         self.userDefaults = userDefaults
         self.wValue = getDefaults()
-        self.wValue?.storageKey = key
-        self.defaultValue.storageKey = key
+        self.projectedValue.delegate = self
     }
     
-    public var wrappedValue: Value {
+    public var wrappedValue: Value? {
         get {
-            if UserDefaults.standard.object(forKey: key) == nil {
-                return defaultValue
+            if  UserDefaults.standard.object(forKey: key) == nil {
+                return nil
             }
-            return wValue ?? defaultValue
+            return wValue
         }
         set {
             wValue = newValue
-            newValue.save()
+            save()
         }
     }
     
-    func getDefaults() -> Value {
+    /// 获取数据
+    private func getDefaults() -> Value? {
         guard let jsonString = UserDefaults.standard.object(forKey: key) as? String,
             let jsonData = jsonString.data(using: .utf8),
               let result = try? JSONDecoder().decode(Value.self, from: jsonData) else {
-                return defaultValue
+                return nil
         }
         return result
     }
-}
-
-
-// MARK - 数据缓存
-public protocol UserDefaultCodableStorage {
+    
+    /// 保存
+    func save() {
         
-    /// 保存对象到UserDefaults
-    ///
-    /// - Parameter defaultName: key(最好key最好以工程的BundleId+key，以避免冲突)
-    /// - Returns: 保存是否成功
-    @discardableResult
-    func save() -> Bool
-    
-    /// 移出
-    ///
-    /// - Parameter defaultName: key
-    /// - Returns: 是否成功
-    @discardableResult
-    func remove() -> Bool
-    
-    /// 缓存key
-    var storageKey: String  { get set }
-}
-
-private struct AssociatedKey {
-    static var locationKey: String = "com.wzly.location.location"
-}
-
-// MARK: - Codable
-extension UserDefaultCodableStorage where Self: Codable {
-    
-   public var storageKey: String {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKey.locationKey) as? String ?? ""
+        let newValue = wValue
+        if newValue == nil {
+            return UserDefaults.standard.removeObject(forKey: key)
         }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKey.locationKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-        }
-    }
-
-    @discardableResult
-    public func save() -> Bool {
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-        guard let data = try? encoder.encode(self),
+        guard let data = try? encoder.encode(newValue),
             let stringJson = String(data: data, encoding: .utf8) else {
-                return false
+                return
         }
-        UserDefaults.standard.set(stringJson, forKey: storageKey)
-        return UserDefaults.standard.synchronize()
+        UserDefaults.standard.set(stringJson, forKey: key)
+        UserDefaults.standard.synchronize()
     }
     
-    @discardableResult
-    public func remove() -> Bool {
-        UserDefaults.standard.removeObject(forKey: storageKey)
-        return UserDefaults.standard.synchronize()
+    /// 移除
+     func remove(){
+        UserDefaults.standard.removeObject(forKey: key)
     }
 }
+
+protocol UserDefaultCodableProjectedValueProtocol {
+    func save()
+    func remove()
+}
+
+// MARK - 状态值
+public class UserDefaultCodableProjectedValue: NSObject {
+        
+    public var key: String
+    var delegate: UserDefaultCodableProjectedValueProtocol?
+    
+    init(key: String) {
+        self.key = key
+    }
+    
+    public func save(){
+        delegate?.save()
+    }
+    
+    public func remove(){
+        delegate?.remove()
+    }
+}
+
+
+
