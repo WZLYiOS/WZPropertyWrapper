@@ -9,7 +9,7 @@
 import Foundation
 
 // 定义一个队列结构
-public struct Queue<T> {
+public struct WZQueue<T> {
     
     // 数组用来存储数据元素
     fileprivate var data = [T]()
@@ -88,7 +88,7 @@ public struct Queue<T> {
 
 
 // 让打印队列时输出简介的格式
-extension Queue: CustomStringConvertible, CustomDebugStringConvertible {
+extension WZQueue: CustomStringConvertible, CustomDebugStringConvertible {
     
     // 控制打印队列时的文本输出
     public var description: String {
@@ -102,7 +102,7 @@ extension Queue: CustomStringConvertible, CustomDebugStringConvertible {
 }
 
 // 让队列支持通过快速声明来创建实例
-extension Queue: ExpressibleByArrayLiteral {
+extension WZQueue: ExpressibleByArrayLiteral {
     
     public init(arrayLiteral elements: T...) {
         self.init(elements)
@@ -111,7 +111,7 @@ extension Queue: ExpressibleByArrayLiteral {
 
 
 // 扩展队列的for...in循环功能
-extension Queue: Sequence {
+extension WZQueue: Sequence {
     
     // 从序列中返回一个迭代器
     public func generate() -> AnyIterator<T> {
@@ -120,7 +120,7 @@ extension Queue: Sequence {
 }
 
 // 根据索引返回指定的位置
-extension Queue: Collection {
+extension WZQueue: Collection {
     
     // i的值必须比endIndex小
     public func index(after i: Int) -> Int {
@@ -130,7 +130,7 @@ extension Queue: Collection {
 }
 
 // 实现下标功能
-extension Queue: MutableCollection {
+extension WZQueue: MutableCollection {
     
     // 队列的起始索引
     public var startIndex: Int {

@@ -11,10 +11,10 @@
 		0B36F88DB68EC36FEACEF97DF86FBEB5 /* Pods-WZPropertyWrapper_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A10C51678B1CC5D4E22BBE2E848C05CF /* Pods-WZPropertyWrapper_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0BA05D782D77DADECC1BF40C084FBACF /* AtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47479B42166FC4B13844E7D1B009C2B8 /* AtomicWrite.swift */; };
 		12DF9257DAD9BBAB022DBB63A758A3DB /* DefaultEnumCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071603592849F20A3CD1C80C1B5BEEB7 /* DefaultEnumCodable.swift */; };
-		199502F0C156580E0B66CBBD4F9841E4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EF54F924F3F7142CEBF4106A7C5492 /* Observable.swift */; };
+		199502F0C156580E0B66CBBD4F9841E4 /* WZObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EF54F924F3F7142CEBF4106A7C5492 /* WZObservable.swift */; };
 		3316394B7A578F529B641841C50B39C5 /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9261D19865B46A4146BF2DE28822728 /* DefaultValue.swift */; };
 		47303B34171282FC0B2AC6349BFFA85E /* DynamicUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A16D33326EF124331709276AD169C9 /* DynamicUIColor.swift */; };
-		607072FA2DA7D19FB2D39EFB86CDD45E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770F2A2B118B0ABD23DD35629140B8DA /* Queue.swift */; };
+		607072FA2DA7D19FB2D39EFB86CDD45E /* WZQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770F2A2B118B0ABD23DD35629140B8DA /* WZQueue.swift */; };
 		64A491E86D443FB2E45700150C189AA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		65A36E8324BF46CC552A5ADC718A9840 /* Trimmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECBC27562960CB692A0736FCDF04E43 /* Trimmed.swift */; };
 		9B04DC6C56B27D35E3CAF05348740909 /* Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6C051DB2D8DF39C1D07B06BBE0F2 /* Lazy.swift */; };
@@ -61,21 +61,21 @@
 		5AE88FD2463404C29A02F1A9BA2F11AC /* Pods-WZPropertyWrapper_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WZPropertyWrapper_Example.modulemap"; sourceTree = "<group>"; };
 		6245690D2175DC16F990016C49E9B855 /* UndoRedo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UndoRedo.swift; path = WZPropertyWrapper/Classes/UndoRedo.swift; sourceTree = "<group>"; };
 		6D100F9EA1794DF28D2AFFAD4946A6B5 /* Clamping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Clamping.swift; path = WZPropertyWrapper/Classes/Clamping.swift; sourceTree = "<group>"; };
-		6FC6382958BB97F130FFA7D18A82B165 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		6FC6382958BB97F130FFA7D18A82B165 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		74381E6485DD37E0B6F7ED0BAFA482F3 /* WZPropertyWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WZPropertyWrapper-prefix.pch"; sourceTree = "<group>"; };
-		76EF54F924F3F7142CEBF4106A7C5492 /* Observable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = WZPropertyWrapper/Classes/Observable.swift; sourceTree = "<group>"; };
-		770F2A2B118B0ABD23DD35629140B8DA /* Queue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = WZPropertyWrapper/Classes/Queue.swift; sourceTree = "<group>"; };
+		76EF54F924F3F7142CEBF4106A7C5492 /* WZObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WZObservable.swift; path = WZPropertyWrapper/Classes/WZObservable.swift; sourceTree = "<group>"; };
+		770F2A2B118B0ABD23DD35629140B8DA /* WZQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WZQueue.swift; path = WZPropertyWrapper/Classes/WZQueue.swift; sourceTree = "<group>"; };
 		8038259A203D22C41C5BF8FBD9E64D17 /* AudioSessionProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioSessionProtocol.swift; path = WZPropertyWrapper/Classes/AudioSessionProtocol.swift; sourceTree = "<group>"; };
 		8ECBC27562960CB692A0736FCDF04E43 /* Trimmed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trimmed.swift; path = WZPropertyWrapper/Classes/Trimmed.swift; sourceTree = "<group>"; };
-		90F0ECAEBEFD54203BF4AE8780FF1071 /* WZPropertyWrapper.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = WZPropertyWrapper.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		90F0ECAEBEFD54203BF4AE8780FF1071 /* WZPropertyWrapper.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = WZPropertyWrapper.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		963A57BAADA368F62430D764482282FB /* WZPropertyWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WZPropertyWrapper-dummy.m"; sourceTree = "<group>"; };
 		97372F2F74F29F4FAD35F663429B942A /* Pods-WZPropertyWrapper_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WZPropertyWrapper_Example-Info.plist"; sourceTree = "<group>"; };
 		9BAB3B550A3D0F176473F09E074ED16A /* Pods-WZPropertyWrapper_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WZPropertyWrapper_Example-frameworks.sh"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A10C51678B1CC5D4E22BBE2E848C05CF /* Pods-WZPropertyWrapper_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WZPropertyWrapper_Example-umbrella.h"; sourceTree = "<group>"; };
 		AAEFB3BAC06C3D48B6CD8AF08DA9EEA9 /* Copying.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Copying.swift; path = WZPropertyWrapper/Classes/Copying.swift; sourceTree = "<group>"; };
-		AF09DA6DA43F03DBE5A5925E76D64848 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		AF09DA6DA43F03DBE5A5925E76D64848 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B78D7D28F36B9DC495271BE24756AB71 /* WZPropertyWrapper */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WZPropertyWrapper; path = WZPropertyWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85122B8021B1DC552301DFC1FB0AA60 /* WZPropertyWrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WZPropertyWrapper.release.xcconfig; sourceTree = "<group>"; };
 		C55E10D5F25325E2E40C6D8D2379F7B0 /* UserDefault.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = WZPropertyWrapper/Classes/UserDefault.swift; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 				4A2E5E0A418B0427DF6508A86E237F9C /* LateInit.swift */,
 				14FC6C051DB2D8DF39C1D07B06BBE0F2 /* Lazy.swift */,
 				35F8D3DAC4C6C4BEC8638991EE6604D6 /* LazyConstant.swift */,
-				76EF54F924F3F7142CEBF4106A7C5492 /* Observable.swift */,
-				770F2A2B118B0ABD23DD35629140B8DA /* Queue.swift */,
+				76EF54F924F3F7142CEBF4106A7C5492 /* WZObservable.swift */,
+				770F2A2B118B0ABD23DD35629140B8DA /* WZQueue.swift */,
 				8ECBC27562960CB692A0736FCDF04E43 /* Trimmed.swift */,
 				6245690D2175DC16F990016C49E9B855 /* UndoRedo.swift */,
 				C55E10D5F25325E2E40C6D8D2379F7B0 /* UserDefault.swift */,
@@ -351,8 +351,8 @@
 				C2DC6F04BF49402CE19EBB1C4D29CBE7 /* LateInit.swift in Sources */,
 				9B04DC6C56B27D35E3CAF05348740909 /* Lazy.swift in Sources */,
 				C6F887665512F0CB2AD6906D62B0AFE3 /* LazyConstant.swift in Sources */,
-				199502F0C156580E0B66CBBD4F9841E4 /* Observable.swift in Sources */,
-				607072FA2DA7D19FB2D39EFB86CDD45E /* Queue.swift in Sources */,
+				199502F0C156580E0B66CBBD4F9841E4 /* WZObservable.swift in Sources */,
+				607072FA2DA7D19FB2D39EFB86CDD45E /* WZQueue.swift in Sources */,
 				65A36E8324BF46CC552A5ADC718A9840 /* Trimmed.swift in Sources */,
 				DE51899D09E6D87017ECC77FDAA6781E /* UndoRedo.swift in Sources */,
 				9B99A7A4AB290D0F168922895F4002C5 /* UserDefault.swift in Sources */,
@@ -466,8 +466,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

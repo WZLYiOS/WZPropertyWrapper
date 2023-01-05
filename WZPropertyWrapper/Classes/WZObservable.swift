@@ -13,11 +13,11 @@ public protocol Observed: NSObjectProtocol {
 }
 
 @propertyWrapper
-public class Observable<Value: Equatable> {
+public class WZObservable<Value: Equatable> {
   public var stored: Value
   weak var observed: Observed?
   
-  public var projectedValue: Observable<Value> { self }
+  public var projectedValue: WZObservable<Value> { self }
     
   public init(wrappedValue: Value) {
     self.stored = wrappedValue
