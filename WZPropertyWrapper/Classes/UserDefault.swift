@@ -66,94 +66,33 @@ extension Array: PropertyListValue where Element: PropertyListValue {}
 extension Dictionary: PropertyListValue where Key == String, Value: PropertyListValue {}
 
 
-// MARK - 存储Codable类型
-@available(iOS 2.0, OSX 10.0, tvOS 9.0, watchOS 2.0, *)
+
+/// for codable
 @propertyWrapper
-public struct UserDefaultCodable<Value: Codable> : UserDefaultCodableProjectedValueProtocol{
-    
+public struct UserDefaultJsonWrapper<Value: Codable> {
     var key: String
-    var wValue: Value?
-    var userDefaults: UserDefaults
-    public var projectedValue: UserDefaultCodableProjectedValue
-    
-    public init(_ key: String, userDefaults: UserDefaults = .standard) {
-        self.projectedValue = UserDefaultCodableProjectedValue(key: key)
-        self.key = key
-        self.userDefaults = userDefaults
-        self.wValue = getDefaults()
-        self.projectedValue.delegate = self
-    }
-    
+    var defaultValue: Value?
     public var wrappedValue: Value? {
         get {
-            if  UserDefaults.standard.object(forKey: key) == nil {
-                return nil
-            }
-            return wValue
+            guard let jsonString = UserDefaults.standard.string(forKey: key) else { return defaultValue }
+            guard let jsonData = jsonString.data(using: .utf8) else { return defaultValue }
+            guard let value = try? JSONDecoder().decode(Value.self, from: jsonData) else { return defaultValue }
+            return value
         }
         set {
-            wValue = newValue
-            save()
-        }
-    }
-    
-    /// 获取数据
-    private func getDefaults() -> Value? {
-        guard let jsonString = UserDefaults.standard.object(forKey: key) as? String,
-            let jsonData = jsonString.data(using: .utf8),
-              let result = try? JSONDecoder().decode(Value.self, from: jsonData) else {
-                return nil
-        }
-        return result
-    }
-    
-    /// 保存
-    func save() {
-        
-        let newValue = wValue
-        if newValue == nil {
-            return UserDefaults.standard.removeObject(forKey: key)
-        }
-        
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        guard let data = try? encoder.encode(newValue),
-            let stringJson = String(data: data, encoding: .utf8) else {
+            let encoder = JSONEncoder()
+            guard let jsonData = try? encoder.encode(newValue) else {
+                UserDefaults.standard.removeObject(forKey: key)
                 return
+            }
+            let jsonString = String(bytes: jsonData, encoding: .utf8)
+            UserDefaults.standard.set(jsonString, forKey: key)
         }
-        UserDefaults.standard.set(stringJson, forKey: key)
-        UserDefaults.standard.synchronize()
     }
     
-    /// 移除
-     func remove(){
-        UserDefaults.standard.removeObject(forKey: key)
-    }
-}
-
-protocol UserDefaultCodableProjectedValueProtocol {
-    func save()
-    func remove()
-}
-
-// MARK - 状态值
-public class UserDefaultCodableProjectedValue: NSObject {
-        
-    public var key: String
-    var delegate: UserDefaultCodableProjectedValueProtocol?
-    
-    init(key: String) {
+    public init(_ key: String, _ defaultValue: Value? = nil) {
         self.key = key
-    }
-    
-    public func save(){
-        delegate?.save()
-    }
-    
-    public func remove(){
-        delegate?.remove()
+        self.defaultValue = defaultValue
     }
 }
-
-
 

@@ -12,7 +12,7 @@ import WZPropertyWrapper
 class ViewController: UIViewController {
 
     
-    @UserDefaultCodable("com.wz.ly")
+    @UserDefaultJsonWrapper("aaaaaa")
     var model: ViewModel?
     
     override func viewDidLoad() {
@@ -32,20 +32,11 @@ extension ViewController {
     
     @objc private func tapActopn() {
         model?.ub = 7
-        $model.save()
-        debugPrint(model?.ub)
-        
-        model?.ub = 8
-        $model.save()
-        debugPrint(model?.ub)
-        
-        model?.ub = 9
-        $model.save()
         debugPrint(model?.ub)
     }
 }
 
-class ViewModel: Codable {
+struct ViewModel: Codable {
     
     
     
