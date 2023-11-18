@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WZPropertyWrapper'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'A short description of WZPropertyWrapper.'
 
   s.description      = <<-DESC
