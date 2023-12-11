@@ -13,7 +13,7 @@ public protocol Copyable {
 }
 
 // MARK: - Codable
-extension Copyable where Self: Codable {
+public extension Copyable where Self: Codable {
     
     func wzCopy() -> Self {
         let encoder = JSONEncoder()
