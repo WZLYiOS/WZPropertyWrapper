@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = 'A short description of WZPropertyWrapper.'
 
   s.description      = <<-DESC
-TODO: Add long description of the
+TODO: Add long description of the asdad 
                        DESC
 
   s.homepage         = 'https://github.com/WZLYiOS/WZPropertyWrapper'
