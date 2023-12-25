@@ -73,11 +73,7 @@ public struct UserDefaultJsonWrapper<Value: Codable> {
     var key: String
     var defaultValue: Value?
     public var wrappedValue: Value? {
-        mutating get {
-            if defaultValue == nil {
-                let data = UserDefaults.standard.data(forKey: key)
-                defaultValue = try? JSONDecoder().decode(Value.self, from: data ?? Data())
-            }
+        get {
             return defaultValue
         }
         set {
@@ -87,9 +83,10 @@ public struct UserDefaultJsonWrapper<Value: Codable> {
         }
     }
     
-    public init(_ key: String, _ defaultValue: Value? = nil) {
+    public init(_ key: String) {
         self.key = key
-        self.defaultValue = defaultValue
+        let data = UserDefaults.standard.data(forKey: key)
+        self.defaultValue = try? JSONDecoder().decode(Value.self, from: data ?? Data())
     }
 }
 
