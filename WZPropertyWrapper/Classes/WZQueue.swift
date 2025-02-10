@@ -86,7 +86,6 @@ public struct WZQueue<T> {
     }
 }
 
-
 // 让打印队列时输出简介的格式
 extension WZQueue: CustomStringConvertible, CustomDebugStringConvertible {
     
@@ -109,9 +108,13 @@ extension WZQueue: ExpressibleByArrayLiteral {
     }
 }
 
-
 // 扩展队列的for...in循环功能
 extension WZQueue: Sequence {
+    
+    // 从序列中返回一个迭代器
+    public func makeIterator() -> AnyIterator<T> {
+        return AnyIterator(data.makeIterator())
+    }
     
     // 从序列中返回一个迭代器
     public func generate() -> AnyIterator<T> {
@@ -121,7 +124,7 @@ extension WZQueue: Sequence {
 
 // 根据索引返回指定的位置
 extension WZQueue: Collection {
-    
+   
     // i的值必须比endIndex小
     public func index(after i: Int) -> Int {
         // 返回i后面的索引
