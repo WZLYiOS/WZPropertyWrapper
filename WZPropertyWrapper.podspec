@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WZPropertyWrapper'
   s.version          = '2.0.0'
-  s.summary          = 'A short description of WZPropertyWrapper.'
+  s.summary          = 'A short description of WZPropertyWrapper.是asd的'
 
   s.description      = <<-DESC
 TODO: Add long description of th
